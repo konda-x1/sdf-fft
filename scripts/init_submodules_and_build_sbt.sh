@@ -11,10 +11,11 @@ FIRESIM_COMMIT=3ae68ec
 ROCKET_DSP_COMMIT=fe641d1
 CDE_COMMIT=384c06b
 
-git submodule add https://github.com/ucb-bar/dsptools.git tools/dsptools
-cd tools/dsptools
-git checkout $DSPTOOLS_COMMIT
-cd ../..
+git submodule add -b milovanovic https://github.com/konda-x1/dsptools tools/dsptools
+git -C tools/dsptools submodule update --init
+#cd tools/dsptools
+#git checkout $DSPTOOLS_COMMIT
+#cd ../..
 git submodule add https://github.com/ucb-bar/rocket-dsp-utils.git tools/rocket-dsp-utils
 cd tools/rocket-dsp-utils
 git checkout $ROCKET_DSP_COMMIT

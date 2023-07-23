@@ -2,21 +2,15 @@
 
 package fft
 
-import chisel3.experimental.FixedPoint
-import chisel3.iotesters.Driver
-
-import org.scalatest.flatspec.AnyFlatSpec
-import org.scalatest.matchers.should.Matchers
+import breeze.math.Complex
 import chisel3.util.log2Up
-
 import dsptools._
 import dsptools.numbers._
+import fixedpoint._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-import breeze.math.Complex
-import breeze.signal.fourierTr
-import breeze.linalg.DenseVector
-
-import scala.math.{pow, Pi}
+import scala.math.pow
 import scala.util.Random
 
 class BitReversePingPongTester[T <: chisel3.Data](c: BitReversePingPong[T]) extends DspTester(c) {

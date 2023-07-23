@@ -2,16 +2,14 @@
 
 package fft
 
+import breeze.linalg.DenseVector
+import breeze.math.Complex
+import breeze.signal.fourierTr
+import chisel3.iotesters.PeekPokeTester
+import chisel3.util.log2Up
 import dsptools.DspTester
 import dsptools.numbers._
-
-import chisel3.iotesters.PeekPokeTester
-import chisel3.experimental.FixedPoint
-import chisel3.util.log2Up
-
-import breeze.math.Complex
-import breeze.signal.{fourierTr, iFourierTr}
-import breeze.linalg.DenseVector
+import fixedpoint._
 
 import scala.math.pow
 import scala.util.Random

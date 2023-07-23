@@ -1,6 +1,10 @@
-import Tests._
+import sbt.Tests._
+
+lazy val fixedpoint = Project("fixedpoint", file("./tools/dsptools/fixedpoint"))
+  .settings(commonSettings)
 
 lazy val sdf_fft = Project("sdf_fft", file("."))
+  .dependsOn(fixedpoint)
   .dependsOn(rocketchip, `rocket-dsp-utils`)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
@@ -117,6 +121,7 @@ lazy val rocketLibDeps = (rocketchip / Keys.libraryDependencies)
 lazy val midasTargetUtils = ProjectRef(firesimDir, "targetutils")
 
 lazy val dsptools = freshProject("dsptools", file("./tools/dsptools"))
+  .dependsOn(fixedpoint)
   .settings(
     chiselSettings,
     chiselTestSettings,
